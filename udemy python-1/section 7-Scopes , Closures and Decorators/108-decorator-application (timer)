@@ -1,0 +1,44 @@
+# def timed(fn):
+
+#     from time import perf_counter
+#     from functools import wraps
+
+#     @wraps(fn)
+#     def inner(a):
+
+#         start = perf_counter()
+#         c = fn(a)
+#         end = perf_counter()
+#         l = end - start
+#         l="%0.2f"%l
+#         print(f"{fn.__name__} ({a}) take {l} time to run")
+#         return c
+
+#     return inner
+
+
+# @timed
+# def fibolps(a):
+#     return fibo(a)
+
+
+# # @timed
+# def fibo(a):
+#     if a <= 2:
+#         return 1
+#     else:
+#         return fibo(a-1)+fibo(a-2)
+
+
+# print(fibolps(33))
+
+
+# # @timed
+# # def fibo(a):
+# #     fib1 = 1
+# #     fib2 = 1
+# #     for i in range(1, a):
+# #         fib1, fib2 = fib2, fib1+fib2
+
+# #     return fib1
+

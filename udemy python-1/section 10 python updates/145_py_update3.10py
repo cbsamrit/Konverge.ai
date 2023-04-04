@@ -1,0 +1,37 @@
+from itertools import zip_longest
+symbols = {
+    "F": "\u2192",
+    "B": "\u2190",
+    "L": "\u2191",
+    "R": "\u2193",
+    "pick": "\u2923",
+    "drop": "\u2925"
+}
+
+
+def solve(command):
+
+    match command:
+        case ['move', *d]:
+            return [symbols[l] for l in d]
+
+        case "drop":
+            return symbols['drop']
+
+        case  "pick":
+            return symbols['pick']
+
+
+print(solve(['move', 'F', 'L']))
+
+
+l1 = [2, 3, 4]
+l2 = ['a', 'b', 'c']
+
+print(list(zip(l1, l2)))
+print(list(zip_longest(l1, l2, fillvalue="???")))
+l1 = list(i ** 2 for i in range(4))
+l2 = list(i ** 3 for i in range(3))
+print(l1, l2)
+print(len(list(l1)) == len(list(l2)))
+print(list(zip(l1, l2)))

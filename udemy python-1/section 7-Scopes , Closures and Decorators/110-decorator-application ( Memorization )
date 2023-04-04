@@ -1,0 +1,51 @@
+def fib(a):
+
+    print(f"calculating fib{a}")
+    if a < 2:
+        return 1
+    else:
+        return fib(a-1)+fib(a-2)
+
+
+print(fib(6))
+
+
+class cal:
+
+    def __init__(self):
+
+        self.d = {1: 1, 2: 1}
+
+    def fib(self, a):
+
+        if a not in self.d:
+
+            print(f"calculating")
+
+            self.d[a] = self.fib(a-1)+self.fib(a-2)
+
+        return self.d[a]
+
+
+k = cal()
+
+print(k.fib(6))
+
+
+def cal():
+
+    l = {1: 1, 2: 1}
+
+    def inner(a):
+
+        if a not in l:
+            print("calculating")
+            l[a] = inner(a-1)+inner(a-2)
+
+        return l[a]
+
+    return inner
+
+
+k = cal()
+print(k(6))

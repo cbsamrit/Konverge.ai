@@ -1,0 +1,42 @@
+def outer(fun):
+    
+    from datetime import datetime  , timezone
+    from functools import wraps
+
+    @wraps(fun)
+    def inner(l):
+
+       rt=datetime.now(timezone.utc)
+       result=fun(l)
+       print(f"{fun.__name__} runs at {rt} time")
+       return result
+    
+    return inner
+
+def timed(fn):
+
+    from time import perf_counter
+    from functools import wraps
+
+    @wraps(fn)
+    def inner(a):
+
+        start = perf_counter()
+        c = fn(a)
+        end = perf_counter()
+        l = end - start
+        print(f"{fn.__name__} ({a}) take {l} time to run")
+        return c
+
+    return inner
+
+from functools import reduce
+
+@outer
+@timed
+def fact(l):
+    from operator import mul
+    return reduce(mul ,range(1,l+1) )
+
+
+print(fact(4))
