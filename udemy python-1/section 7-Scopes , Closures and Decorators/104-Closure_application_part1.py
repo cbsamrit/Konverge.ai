@@ -9,6 +9,7 @@ class avg:
         total = sum(self.list_of_n)
         n = len(self.list_of_n)
         return total/n
+# this is tutorial
 
 
 k = avg()
